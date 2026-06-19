@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Custom animated utilities */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 15px rgba(0, 183, 255, 0.4);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 35px rgba(0, 183, 255, 0.8), 0 0 15px rgba(138, 239, 255, 0.4);
+  }
+}
+
+@keyframes micro-vibrate {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  10% { transform: translate(-0.5px, -0.5px) rotate(-0.1deg); }
+  20% { transform: translate(0.5px, 0px) rotate(0.1deg); }
+  30% { transform: translate(0px, 0.5px) rotate(0deg); }
+  40% { transform: translate(0.5px, -0.5px) rotate(0.1deg); }
+  50% { transform: translate(-0.5px, 0.5px) rotate(-0.1deg); }
+  60% { transform: translate(-0.5px, -0.5px) rotate(0deg); }
+  70% { transform: translate(0.5px, 0.5px) rotate(0.1deg); }
+  80% { transform: translate(-0.5px, 0px) rotate(-0.1deg); }
+  90% { transform: translate(0px, -0.5px) rotate(0deg); }
+}
+
+@keyframes particle-drift {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(-80px) translateX(15px); opacity: 0; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+.animate-vibrate {
+  animation: micro-vibrate 0.1s infinite linear;
+}
+
+.animate-particle-1 {
+  animation: particle-drift 4s infinite linear;
+}
+
+.glass-panel {
+  background: rgba(7, 27, 46, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(7, 27, 46, 0.8);
+  border-color: rgba(0, 183, 255, 0.3);
+  box-shadow: 0 10px 30px -15px rgba(0, 183, 255, 0.2);
+}
+
+body {
+  background-color: #030d17;
+  color: #f1f5f9;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030d17;
+}
+::-webkit-scrollbar-thumb {
+  background: #0f2942;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00b7ff;
+}
+
